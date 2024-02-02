@@ -6,14 +6,14 @@
 /*   By: bamssaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:31:06 by bamssaye          #+#    #+#             */
-/*   Updated: 2024/02/01 21:16:44 by bamssaye         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:03:35 by bamssaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headerfile/minitalk_bonus.h"
 
 void	ft_check(int sin, siginfo_t *info, void *str);
-void	ft_header(voi);
+void	ft_header(void);
 
 int	main(int ac, char **av)
 {
@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 		}
 	}
 	else
-		ft_printf("%s", SERVERR);
+		ft_putstr(SERVERR);
 	return (0);
 }
 
@@ -49,7 +49,7 @@ void	ft_check(int sin, siginfo_t *info, void *str)
 	if (bit == 8)
 	{
 		if (c != '\0')
-			ft_printf("%c", c);
+			ft_putchar(c);
 		else
 			kill(info->si_pid, SIGUSR2);
 		bit = 0;
@@ -62,9 +62,12 @@ void	ft_header(void)
 	int	pid;
 
 	pid = getpid();
-	ft_printf("======================================================\n");
-	ft_printf("==                    **MINITALK**                  ==\n");
-	ft_printf("==                                                  ==\n");
-	ft_printf("==   PID : %d                      By : Bamssaye ==\n", pid);
-	ft_printf("======================================================\n\n\n");
+	ft_putstr("\t\t===================  **MINITALK**  ===================\n");
+	ft_putstr("\t\t==                                                  ==\n");
+	ft_putstr("\t\t                             By : Bamssaye        \n");
+	ft_putstr("\t\t   PID :");
+	ft_putnbr(pid);
+	ft_putstr("                                          \n");
+	ft_putstr("\t\t==                                                  ==\n");
+	ft_putstr("\t\t======================================================\n\n");
 }

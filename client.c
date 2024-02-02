@@ -6,13 +6,13 @@
 /*   By: bamssaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:49:58 by bamssaye          #+#    #+#             */
-/*   Updated: 2024/02/01 21:17:14 by bamssaye         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:45:44 by bamssaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headerfile/minitalk.h"
 
-oid	ft_sendbits(int pid, int c);
+void	ft_sendbits(int pid, int c);
 
 int	main(int ac, char **av)
 {
@@ -24,13 +24,13 @@ int	main(int ac, char **av)
 	if (ac == 3)
 	{
 		if ((kill(pid, 0) != 0) || (pid == 0))
-			return (ft_printf("%s", PIDNOTV));
+			return (ft_putstr(PIDNOTV), 0);
 		while (av[2][i])
 			ft_sendbits(pid, av[2][i++]);
 		ft_sendbits(pid, '\n');
 	}
 	else
-		ft_printf("%s", PIDERROR);
+		ft_putstr(PIDERROR);
 	return (0);
 }
 
