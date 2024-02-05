@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamssaye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bamssaye <bamssaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:25:41 by bamssaye          #+#    #+#             */
-/*   Updated: 2024/02/02 17:49:53 by bamssaye         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:39:25 by bamssaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headerfile/minitalk.h"
 
-int     ft_strlen(char *str);
-void    ft_putstr(char *str);
-int     ft_isdigit(int c);
-int     ft_atoi(char *str);
-void    ft_putchar(int c);
+void	ft_putstr(char *str);
+int		ft_isdigit(int c);
+int		ft_atoi(char *str);
+void	ft_putchar(int c);
 void	ft_putnbr(int n);
 
 int	ft_isdigit(int c)
@@ -48,26 +47,21 @@ int	ft_atoi(char *nptr)
 	return (n * p);
 }
 
-int     ft_strlen(char *str)
+void	ft_putstr(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(str[i])
-        i++;
-    return (i);
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+		i++;
+	write(1, str, i);
 }
 
-void    ft_putstr(char *str)
+void	ft_putchar(int c)
 {
-    if (!str)
-        return;
-    write(1, str, ft_strlen(str));
-}
-
-void ft_putchar(int c)
-{
-    write(1, &c, 1);
+	write(1, &c, 1);
 }
 
 void	ft_putnbr(int n)
